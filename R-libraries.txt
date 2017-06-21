@@ -15,6 +15,7 @@ flexsurv
 rstan
 yaml
 knitr
+jsonlite
 
 
 

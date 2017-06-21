@@ -13,7 +13,10 @@ set(R_LIB_DIR ${PROJECT_BINARY_DIR}/R/library)
 set(ENV{R_LIBS_USER} ${R_LIB_DIR})
 
 add_custom_command(
-  OUTPUT R/library/knitr
+  OUTPUT R/library/knitr R/library/drat R/library/devtools R/library/abind R/library/readr
+         R/library/digest R/library/testthat R/library/roxygen2 R/library/Rcpp R/library/RcppEigen
+         R/library/magrittr R/library/dplyr R/library/ggplot2 R/library/rappdirs R/library/flexsurv
+         R/library/rstan R/library/yaml R/library/knitr R/library/jsonlite 
   COMMAND mkdir -p ${R_LIB_DIR}
   COMMAND Rscript ${PROJECT_SOURCE_DIR}/packages.R ${PROJECT_SOURCE_DIR} noupdate
   VERBATIM
@@ -21,7 +24,10 @@ add_custom_command(
 )
 
 add_custom_target(
-  r-environment ALL DEPENDS R/library/knitr
+  r-environment ALL DEPENDS R/library/knitr R/library/drat R/library/devtools R/library/abind R/library/readr
+         R/library/digest R/library/testthat R/library/roxygen2 R/library/Rcpp R/library/RcppEigen
+         R/library/magrittr R/library/dplyr R/library/ggplot2 R/library/rappdirs R/library/flexsurv
+         R/library/rstan R/library/yaml R/library/knitr R/library/jsonlite
 )
 
 add_subdirectory(code)
