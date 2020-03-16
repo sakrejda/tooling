@@ -1,3 +1,4 @@
+
 #' Get package's (own) 'src' directory as installed.
 src_dir <- function() system.file("src", package="waitup")
 
@@ -50,6 +51,7 @@ merge_stan_functions <- function() {
 }
 
 #' Merge and transpile Stan functions.
+#' @export transpile
 transpile <- function(target_dir = cpp_dir()) { 
   stan_code <- waitup:::merge_stan_functions()
   transpiled <- rstan::stanc(model_code=stan_code,
@@ -64,6 +66,7 @@ transpile <- function(target_dir = cpp_dir()) {
     return(FALSE)
 }
 
+transpile(target_dir='src')
 
 
 
